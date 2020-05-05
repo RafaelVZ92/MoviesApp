@@ -9,5 +9,18 @@
         android:id="@+id/listMovieFragment"
         android:name="com.example.gonetexam.core.search.fragments.ListMovieFragment"
         android:label="fragment_list_movie"
-        tools:layout="@layout/fragment_list_movie" />
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.gonetexam.core.search.fragments.DetailMovieFragment"
+        android:label="fragment_detail_movie"
+        tools:layout="@layout/fragment_detail_movie" >
+        <action
+            android:id="@+id/action_detailMovieFragment_to_listMovieFragment"
+            app:destination="@id/listMovieFragment" />
+    </fragment>
 </navigation>
