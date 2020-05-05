@@ -13,14 +13,13 @@ class MovieRepository : BaseRepository() {
         return try {
             val movie = service.getMovie(
                 type.name.toLowerCase(),
-                apiKey,
+                API_KEY,
                 LANGUAGE,
                 page
             )
             if (!movie.isSuccessful) {
                 return responseHandler.handleException(movie.headers())
             }
-            getPoster()
             return responseHandler.handleSuccess(
                 MovieModelMapper().map(movie.body()!!)
             )
@@ -29,19 +28,4 @@ class MovieRepository : BaseRepository() {
         }
     }
 
-    suspend fun getPoster(): Resource<Unit>{
-        return try {
-            val movie = loadImage.getPoster(
-                "xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg"
-            )
-            if (!movie.isSuccessful) {
-                return responseHandler.handleException(movie.headers())
-            }
-            return responseHandler.handleSuccess(
-               movie.body()!!
-            )
-        } catch (e: Exception) {
-            responseHandler.handleException(e)
-        }
-    }
 }

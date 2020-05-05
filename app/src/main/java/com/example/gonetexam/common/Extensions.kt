@@ -1,5 +1,6 @@
 package com.example.gonetexam.common
 
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -9,3 +10,4 @@ fun String.formatServerDateTo(format: String): String {
         val sdf = SimpleDateFormat(format, Locale.getDefault())
         return if (currentDate != null) sdf.format(currentDate) else ""
 }
+

@@ -8,17 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gonetexam.R
+import com.example.gonetexam.core.base.BaseRepository.Companion.IMG_URL
 import com.example.gonetexam.core.base.ItemListener
 import com.example.gonetexam.core.repository.model.MovieModel
+import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val items: MutableList<Any?>,
                    internal var itemClick: ItemListener?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var context: Context? = null
+    private val picasso = Picasso.get()
 
     fun itemClick(index: Int) {
-//        val transfer: MovementModel = items[index] as MovementModel
-//        this.selection?.invoke(index, transfer.id)
+         val movie: MovieModel = items[index] as MovieModel
+         this.itemClick?.invoke(index, "1")
     }
 
 
@@ -31,7 +34,7 @@ class MovieAdapter(private val items: MutableList<Any?>,
         when(holder){
             is MovieHolder -> {
                 val item = items[position] as MovieModel
-                holder.iconMovie.setImageResource(R.drawable.ic_launcher_background)
+                picasso.load(IMG_URL+item.iconMovie).into(holder.iconMovie)
                 holder.movieName.text = item.movieName
                 holder.movieRated.text = item.movieRated.toString()
                 holder.movieLanguage.text = item.movieLanguage

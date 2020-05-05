@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -64,4 +65,9 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.5'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.9.5'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.0'
+
+    //Picasso
+    def picassoVersion = "2.71828"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
 }
