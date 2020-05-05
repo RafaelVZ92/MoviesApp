@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="get_type" translatable="false">popular</string>
+    <string name="mob_app_data" translatable="false">public/omnichannelaccessedg/v1/mobappData</string>
+    <string name="version_check" translatable="false">public/omnichannelaccessedg/v1/versionCheck</string>
+</resources>
